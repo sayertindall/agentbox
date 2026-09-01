@@ -1,0 +1,26 @@
+version = 1
+root = "/var/lib/devbox"
+tailscale_interface = "tailscale0"
+ssh_port = 22
+staging_max_bytes = 1073741824
+staging_quota_backend = "project-quota"
+run_max_bytes = 1073741824
+run_quota_backend = "project-quota"
+run_memory_max = "4G"
+run_cpu_quota = "200%"
+run_tasks_max = 256
+monitor_interval = "30s"
+
+[retention]
+receipts = "720h"
+raw_output = "168h"
+archives = "2160h"
+staging = "24h"
+database_backups = "720h"
+
+[[credential_profiles]]
+id = "codex-primary"
+provider = "codex"
+max_active_runs = 1
+credential_injection_adaptor = "systemd-credentials"
+egress_policy_id = "codex"

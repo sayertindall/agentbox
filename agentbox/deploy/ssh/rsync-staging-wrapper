@@ -1,0 +1,8 @@
+#!/bin/sh
+# Forced command for the transfer key. Permits rsync server mode under one
+# staging token root. No shell, no parent path, no control socket.
+set -eu
+token_root=${DEVBOX_STAGING_TOKEN_ROOT:?staging token root is required}
+# The Go transfer.Allow implementation is authoritative. This wrapper exists so
+# authorized_keys has a concrete forced command before the host binary is installed.
+exec /usr/local/bin/devbox-staging-rsync --token-root "$token_root"

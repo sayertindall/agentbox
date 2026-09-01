@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+meta=${DEVBOX_METADATA:-.}
+mkdir -p "$meta"
+echo started > "$meta/fake-marker"
+# Stay up after the laptop disconnects.
+exec sleep 86400

@@ -1,0 +1,16 @@
+[Unit]
+Description=DevBox agentboxd
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=devbox-control
+ExecStart=/usr/local/bin/agentboxd -config /etc/devbox/host.toml
+RuntimeDirectory=agentboxd
+RuntimeDirectoryMode=0750
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

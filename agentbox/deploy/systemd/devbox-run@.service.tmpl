@@ -1,0 +1,19 @@
+[Unit]
+Description=DevBox run %i
+After=network-online.target
+
+[Service]
+Type=simple
+User=devbox-run-%i
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+MemoryMax={{.MemoryMax}}
+CPUQuota={{.CPUQuota}}
+TasksMax={{.TasksMax}}
+Environment=DEVBOX_HANDOFF_FILE=%i
+# Socket and workspace paths are server-resolved. This unit does not accept a client path.
+
+[Install]
+WantedBy=multi-user.target

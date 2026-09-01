@@ -1,0 +1,1 @@
+no-port-forwarding,no-agent-forwarding,no-X11-forwarding,no-pty,no-user-rc,command="/usr/local/libexec/rsync-staging-wrapper" ssh-ed25519 REPLACE_WITH_TRANSFER_KEY devbox-transfer
